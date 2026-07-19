@@ -91,7 +91,7 @@
 
   function requireAuth(redirectTo) {
     if (!getSession()) {
-      window.location.href = redirectTo || 'sign_in.html';
+      window.location.href = redirectTo || 'index.html';
       return false;
     }
     return true;

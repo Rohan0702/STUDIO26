@@ -66,6 +66,6 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   backBtn.addEventListener('click', function () {
-    window.location.href = 'sign_in.html';
+    window.location.href = 'index.html';
   });
 });

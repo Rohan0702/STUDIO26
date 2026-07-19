@@ -89,6 +89,6 @@ document.addEventListener('DOMContentLoaded', function () {
   if (logoutBtn) logoutBtn.addEventListener('click', function () {
     ApexData.logout();
     localStorage.removeItem(STORAGE_KEY);
-    window.location.href = 'sign_in.html';
+    window.location.href = 'index.html';
   });
 });

@@ -5,20 +5,20 @@
    data-nav-toast="message"    -> shows a toast instead of navigating (feature not in this prototype)
 */
 (function () {
-  const PUBLIC_PAGES = ['sign_in.html', 'create_account.html', 'verify_identity_otp.html', ''];
-
+  const PUBLIC_PAGES = ['index.html', 'create_account.html', 'verify_identity_otp.html', ''];
+ 
   function currentPage() {
     const parts = window.location.pathname.split('/');
-    return parts[parts.length - 1] || 'sign_in.html';
+    return parts[parts.length - 1] || 'index.html';
   }
-
+ 
   document.addEventListener('DOMContentLoaded', function () {
     const page = currentPage();
-
+ 
     // Auth guard for everything except the public onboarding pages.
     if (window.ApexData && !PUBLIC_PAGES.includes(page)) {
       if (!ApexData.getSession()) {
-        window.location.href = 'sign_in.html';
+        window.location.href = 'index.html';
         return;
       }
     }
