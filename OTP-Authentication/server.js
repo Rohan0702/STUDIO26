@@ -128,6 +128,10 @@ app.post("/api/translate", async (req, res) => {
 });
 
 // server
-app.listen(5000, ()=>{
-    console.log("Server running on port 5000");
-});
+if (require.main === module) {
+    app.listen(5000, ()=>{
+        console.log("Server running on port 5000");
+    });
+}
+
+module.exports = app;
