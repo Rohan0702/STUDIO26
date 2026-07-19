@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const path = require("path");
 require("dotenv").config({ path: path.join(__dirname, ".env") });
 
@@ -17,13 +17,17 @@ app.use(express.static(path.join(__dirname, "..")));
 const User = require("./models/User");
 
 // database connection
-mongoose.connect(process.env.MONGO_URI)
-.then(()=>{
-    console.log("MongoDB Connected");
-})
-.catch((error)=>{
-    console.log("MongoDB Connection Error:", error);
-});
+if (process.env.MONGO_URI) {
+    mongoose.connect(process.env.MONGO_URI)
+    .then(()=>{
+        console.log("MongoDB Connected");
+    })
+    .catch((error)=>{
+        console.log("MongoDB Connection Error:", error);
+    });
+} else {
+    console.warn("WARNING: MONGO_URI environment variable is not defined.");
+}
 
 // routes
 app.use("/api/auth", require("./routes/auth"));
@@ -129,8 +133,9 @@ app.post("/api/translate", async (req, res) => {
 
 // server
 if (require.main === module) {
-    app.listen(5000, ()=>{
-        console.log("Server running on port 5000");
+    const PORT = process.env.PORT || 5000;
+    app.listen(PORT, ()=>{
+        console.log(`Server running on port ${PORT}`);
     });
 }
 
