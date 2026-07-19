@@ -1,0 +1,105 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Apex Operations | Security Gateway</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="tailwind.config.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Hanken+Grotesk:wght@600;700&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="global.css">
+<script src="sign_in.js" defer></script>
+<script src="apex-data.js" defer></script>
+<script src="navigation.js" defer></script>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col overflow-hidden selection:bg-primary selection:text-on-primary">
+<!-- Atmospheric Background Overlay -->
+<div class="fixed inset-0 z-0">
+<div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_rgba(23,31,51,1)_0%,_rgba(11,19,38,1)_100%)]"></div>
+<div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(#3e4850 0.5px, transparent 0.5px); background-size: 24px 24px;"></div>
+</div>
+<!-- Login Container -->
+<main class="relative z-10 flex-grow flex items-center justify-center p-margin-mobile md:p-lg">
+<div class="w-full max-w-[440px] flex flex-col gap-xl">
+<!-- Brand Identity -->
+<div class="flex flex-col items-center text-center space-y-md">
+<div class="relative w-20 h-20 bg-surface-container-high border border-outline-variant rounded-xl flex items-center justify-center scanline-effect overflow-hidden">
+<span class="material-symbols-outlined text-primary text-[48px]" style="font-variation-settings: 'FILL' 1;">security</span>
+<div class="absolute top-1 right-1">
+<div class="w-2 h-2 bg-secondary rounded-full status-pulse"></div>
+</div>
+</div>
+<div class="space-y-xs">
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary tracking-tighter">STUDIO26</h1>
+<p class="font-label-caps text-label-caps text-outline tracking-widest uppercase">Apex Operations Gateway</p>
+</div>
+</div>
+<!-- Login Form Card -->
+<div class="bg-surface-container border border-outline-variant rounded-xl p-lg shadow-2xl backdrop-blur-sm">
+<form class="space-y-lg" id="login-form">
+<!-- Volunteer ID Input (Email) -->
+<div class="space-y-sm">
+<label class="font-label-caps text-label-caps text-on-surface-variant flex items-center gap-xs">
+<span class="material-symbols-outlined text-[14px]">mail</span>
+                            OFFICIAL EMAIL
+                        </label>
+<div class="relative group glow-border transition-all duration-300">
+<input id="email" class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg px-md py-md font-data-display text-data-display text-on-surface placeholder:text-outline/50 focus:outline-none focus:border-primary transition-colors" placeholder="email@example.com" type="email" required>
+</div>
+</div>
+<!-- Password Input -->
+<div class="space-y-sm">
+<div class="flex justify-between items-center">
+<label class="font-label-caps text-label-caps text-on-surface-variant flex items-center gap-xs">
+<span class="material-symbols-outlined text-[14px]">lock</span>
+                                ACCESS KEY (PASSWORD)
+                            </label>
+<a class="font-label-caps text-[10px] text-primary hover:underline uppercase tracking-tighter" href="#" data-nav-toast="Password reset is not available in this prototype. Please contact the administrator.">Secure Reset</a>
+</div>
+<div class="relative group glow-border transition-all duration-300">
+<input id="password" class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg px-md py-md font-data-display text-data-display text-on-surface placeholder:text-outline/50 focus:outline-none focus:border-primary transition-colors" placeholder="••••••••••••" type="password" required>
+<button class="absolute right-md top-1/2 -translate-y-1/2 text-outline hover:text-primary transition-colors" type="button" id="toggle-password">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+</div>
+</div>
+<!-- Status / Error Messages -->
+<div id="error-message" class="text-error text-[12px] font-label-caps bg-error-container/20 border border-error-container/30 px-md py-sm rounded hidden"></div>
+<!-- Actions -->
+<div class="pt-md space-y-md">
+<button type="submit" id="login-btn" class="w-full bg-primary-container text-on-primary-container font-headline-sm text-headline-sm py-md rounded-xl hover:bg-primary-container/90 active:scale-[0.98] transition-all flex items-center justify-center gap-sm shadow-lg shadow-primary-container/20">
+                            AUTHENTICATE
+                            <span class="material-symbols-outlined">login</span>
+</button>
+<div class="flex items-center gap-sm">
+<div class="h-[1px] flex-grow bg-outline-variant"></div>
+<span class="font-label-caps text-label-caps text-outline">NEW PERSONNEL?</span>
+<div class="h-[1px] flex-grow bg-outline-variant"></div>
+</div>
+<button type="button" id="register-btn" class="w-full bg-transparent border border-outline-variant text-on-surface font-body-lg text-body-lg py-md rounded-xl hover:bg-surface-container-highest active:scale-[0.98] transition-all flex items-center justify-center gap-sm">
+                            REGISTER ACCOUNT
+                            <span class="material-symbols-outlined text-[20px]">person_add</span>
+</button>
+</div>
+</form>
+</div>
+<!-- Operational Context Bar -->
+<div class="flex flex-col gap-sm md:flex-row md:justify-between font-label-caps text-label-caps text-outline opacity-70">
+<div class="flex items-center gap-xs">
+<span class="w-2 h-2 bg-secondary rounded-full"></span>
+                    SYSTEMS NOMINAL - ZONE 4 READY
+                </div>
+<div class="flex items-center gap-md">
+<span class="">V 2.6.0-DELTA</span>
+<span class="material-symbols-outlined text-[14px]">public</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Visual Accents: Decorative Tech Grid elements -->
+<div class="fixed top-0 left-0 w-32 h-32 border-l border-t border-primary/20 m-md pointer-events-none"></div>
+<div class="fixed bottom-0 right-0 w-32 h-32 border-r border-b border-primary/20 m-md pointer-events-none"></div>
+
+
+
+</body></html>

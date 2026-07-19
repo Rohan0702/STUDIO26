@@ -1,0 +1,177 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Stadium Operations Map - Estadio Azteca</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="tailwind.config.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=Inter:wght@400;600&amp;family=JetBrains+Mono:wght@600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind Configuration Injection -->
+<script src="stadium_operations_map_full_view.js" defer></script>
+<link rel="stylesheet" href="global.css">
+<script src="apex-data.js" defer></script>
+<script src="navigation.js" defer></script>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-primary/30 min-h-screen overflow-hidden flex flex-col">
+<!-- TopAppBar Component -->
+<header class="bg-surface-dim dark:bg-surface-dim border-b border-outline-variant flex justify-between items-center w-full px-margin-mobile h-16 fixed top-0 z-[60]">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline/30">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a stadium operations manager wearing a tactical headset, with blurred command center screens in the background. The lighting is cool-toned and cinematic, emphasizing a professional, high-stakes operational atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2UpfJqj26tnxPLwYUh1FmZ82vuY3MG1X_dPLNmmxHZYjXFrxfYad7duZPr87ZdvpKlzHYyH2U6ATNSpB7OhQ5CZ0D2ZxmQoRZkfUtUJvLkvhmGQ4cG2szBEuiVihNPtZQf5HHJvZ6CmSlOCBufS9hm6kPKcoMEZxCANCTq7Da5MXSABTlcD6MSx2GXkA0emy4psDzgpzyVzd6H9TXOwjbXXLFPEd5hTYmezP0qihzhyHR2RWpPtgj0g">
+</div>
+<h1 class="font-headline-sm text-headline-sm font-bold text-primary">Estadio Azteca</h1>
+</div>
+<div class="flex items-center gap-4">
+<span id="collapse-map-btn" class="material-symbols-outlined text-primary dark:text-primary cursor-pointer hover:bg-surface-container-high transition-colors p-2 rounded-full" title="Back to compact map view">close_fullscreen</span>
+</div>
+</header>
+<!-- Main Content Area (Canvas) -->
+<main class="flex-1 relative h-screen w-screen overflow-hidden">
+<!-- Real-Time Metrics Bar (Floating Overlay) -->
+<div class="fixed top-16 left-0 w-full bg-surface-container-lowest/80 border-b border-outline-variant/30 py-3 px-4 z-40 overflow-x-auto no-scrollbar flex items-center gap-6 whitespace-nowrap blur-backdrop">
+<div class="flex items-center gap-2">
+<span class="font-label-caps text-label-caps text-on-surface-variant">OCCUPANCY:</span>
+<span class="font-data-display text-data-display text-primary">84%</span>
+<div class="w-16 h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[84%]"></div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-caps text-label-caps text-on-surface-variant">ACTIVE STAFF:</span>
+<span class="font-data-display text-data-display text-secondary">92%</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-caps text-label-caps text-on-surface-variant">GATE FLOW:</span>
+<span class="font-label-caps text-label-caps px-2 py-0.5 rounded bg-secondary-container/20 text-secondary border border-secondary/30">OPTIMAL</span>
+</div>
+<div class="flex items-center gap-2 ml-auto">
+<span class="w-2 h-2 rounded-full bg-error alert-pulse"></span>
+<span class="font-label-caps text-label-caps text-error">LIVE UPDATES ACTIVE</span>
+</div>
+</div>
+<!-- Full Page Map Interface -->
+<div class="map-container">
+<div class="w-full h-full relative" data-location="Mexico City Estadio Azteca">
+<img alt="Detailed tactical stadium operations map showing zones and density" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAScjwlGB0BcPb157PQ3NK70_TEHM0Dbi9HE8TONeBBQ4lxGisvd2JzYofOtanzj3sDd0NjavOoQUzxDx-SE1ynWbMyy5RoYSBfRYxd8cvHoApnChH0a188VF_zNrwSQxlqr0z_K2W7sKP2B2MLLGjaefHZyA6i8cAgUq2DQayBli-xtOZdMd28L0fih2FgpPq-nb1BV2yIE6YyQ5VUqlrtxd8xvfRx-88uXZoPRqarn9nVUAmYNtKNB9azvhevT1QyMqQ" style="transform: scale(1.05) translate(0.057px, 1.284px);">
+<!-- SVG Overlay for Interactive Zones -->
+<svg class="absolute inset-0 w-full h-full opacity-40 pointer-events-none" viewBox="0 0 1000 1000">
+<!-- Zone 1: Moderate (Blue/Cyan) -->
+<path d="M400,300 A250,250 0 0,0 400,700" fill="none" stroke="#0ea5e9" stroke-linecap="round" stroke-width="120"></path>
+<!-- Zone 2: Optimal (Green) -->
+<path d="M450,750 A250,250 0 0,0 650,750" fill="none" stroke="#4ae176" stroke-linecap="round" stroke-width="120"></path>
+<!-- Zone 3: Alert (Orange Highlighted) -->
+<path class="opacity-70 blur-[2px]" d="M700,650 A250,250 0 0,0 700,350" fill="none" stroke="#fa7417" stroke-linecap="round" stroke-width="120"></path>
+<!-- Zone 4: Optimal (Green) -->
+<path d="M650,250 A250,250 0 0,0 450,250" fill="none" stroke="#4ae176" stroke-linecap="round" stroke-width="120"></path>
+</svg>
+<!-- Zone Detail Card (Floating near Zone 3) -->
+<div class="absolute top-[50%] right-[25%] z-30 glass-panel p-4 rounded-xl shadow-2xl w-48 border-l-4 border-l-tertiary-container translate-y-[-50%]">
+<div class="flex justify-between items-start mb-2">
+<span class="font-label-caps text-label-caps text-on-surface-variant">ZONE 3</span>
+<span class="material-symbols-outlined text-[16px] text-tertiary cursor-pointer">info</span>
+</div>
+<div class="space-y-2">
+<div>
+<p class="font-label-caps text-[10px] text-outline uppercase tracking-wider">Density</p>
+<p class="font-headline-sm text-[16px] text-tertiary font-bold">MODERATE</p>
+</div>
+<div class="flex justify-between items-end">
+<div>
+<p class="font-label-caps text-[10px] text-outline uppercase tracking-wider">Staffing</p>
+<p class="font-data-display text-[14px]">12/15</p>
+</div>
+<div class="text-right">
+<p class="font-label-caps text-[10px] text-outline uppercase tracking-wider">Flow Rate</p>
+<p class="font-data-display text-[14px]">142/m</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Tactical UI Elements (Floating Buttons) -->
+<div class="absolute right-4 top-40 flex flex-col gap-3 z-40">
+<button id="map-search-btn" class="w-12 h-12 bg-surface-container-high/90 blur-backdrop border border-outline-variant rounded-full flex items-center justify-center text-on-surface hover:bg-primary hover:text-on-primary transition-all shadow-lg">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button id="map-layers-btn" class="w-12 h-12 bg-surface-container-high/90 blur-backdrop border border-outline-variant rounded-full flex items-center justify-center text-on-surface hover:bg-primary hover:text-on-primary transition-all shadow-lg">
+<span class="material-symbols-outlined">layers</span>
+</button>
+<button id="map-locate-btn" class="w-12 h-12 bg-surface-container-high/90 blur-backdrop border border-outline-variant rounded-full flex items-center justify-center text-on-surface hover:bg-primary hover:text-on-primary transition-all shadow-lg">
+<span class="material-symbols-outlined">my_location</span>
+</button>
+</div>
+<!-- Predictive Alert Panel (Streamlined Overlay) -->
+<div class="fixed bottom-24 left-4 right-4 z-50">
+<div class="bg-surface-container-low/90 blur-backdrop border border-outline-variant rounded-2xl shadow-2xl relative overflow-hidden p-3 max-w-lg mx-auto md:mx-0">
+<div class="absolute top-0 left-0 w-full h-1 bg-tertiary-container"></div>
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-tertiary-container/20 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[18px] alert-pulse">warning</span>
+</div>
+<h3 class="font-headline-sm text-[16px] text-on-surface leading-tight">Predictive Alert: Gate 7 Surge</h3>
+</div>
+<button id="dismiss-alert-btn" class="text-on-surface-variant hover:text-on-surface">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="grid grid-cols-2 gap-3 mb-3">
+<div class="bg-surface-container-highest/40 p-2 rounded-lg border border-outline-variant/30">
+<p class="font-label-caps text-[9px] text-outline mb-0.5">CURRENT FLOW</p>
+<p class="font-data-display text-[14px]">120/min</p>
+</div>
+<div class="bg-surface-container-highest/40 p-2 rounded-lg border border-outline-variant/30">
+<p class="font-label-caps text-[9px] text-outline mb-0.5">EXPECTED PEAK</p>
+<p class="font-data-display text-[14px] text-tertiary">210/min</p>
+</div>
+</div>
+<button id="deploy-support-btn" class="w-full bg-primary hover:bg-primary-container text-on-primary font-bold px-4 rounded-xl transition-all flex items-center justify-center gap-2 py-2 text-[14px]">
+<span class="material-symbols-outlined text-[18px]">send</span>
+                    DEPLOY SUPPORT UNITS
+                </button>
+</div>
+</div>
+</main>
+<!-- BottomNavBar Component -->
+<nav class="bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-outline-variant shadow-lg fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 pb-safe">
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:text-secondary-fixed transition-all cursor-pointer" data-nav="volunteer_tasking_interface.html">
+<span class="material-symbols-outlined">assignment</span>
+<span class="font-label-caps text-label-caps uppercase mt-1">Tasks</span>
+</div>
+<div class="flex flex-col items-center justify-center text-secondary font-bold hover:text-secondary-fixed transition-all cursor-pointer">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">map</span>
+<span class="font-label-caps text-label-caps uppercase mt-1">Map</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:text-secondary-fixed transition-all cursor-pointer" data-nav="active_alarms.html">
+<span class="material-symbols-outlined">notifications_active</span>
+<span class="font-label-caps text-label-caps uppercase mt-1">Alerts</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:text-secondary-fixed transition-all cursor-pointer" data-nav="volunteer_profile.html">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-caps text-label-caps uppercase mt-1">Profile</span>
+</div>
+</nav>
+<!-- Micro-interaction Scripts -->
+
+<style>
+        .ripple {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transform: scale(0);
+            animation: ripple 0.6s linear;
+            pointer-events: none;
+        }
+        @keyframes ripple {
+            to { transform: scale(4); opacity: 0; }
+        }
+        
+        img[data-location] {
+            transition: transform 0.2s ease-out;
+            transform: scale(1.05);
+        }
+    </style>
+
+
+</body></html>

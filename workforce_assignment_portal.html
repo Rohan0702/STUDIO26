@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Workforce Assignment | STUDIO26 OPS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="tailwind.config.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Hanken+Grotesk:wght@600;700&family=JetBrains+Mono:wght@600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@100..900&family=Inter:wght@100..900&family=JetBrains+Mono:wght@100..900&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="global.css">
+<script src="workforce_assignment_portal.js" defer></script>
+<script src="apex-data.js" defer></script>
+<script src="navigation.js" defer></script>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-hidden">
+<!-- Top AppBar (From Shared Components) -->
+<header class="w-full top-0 sticky border-b border-outline-variant bg-surface flex items-center justify-between px-margin-desktop h-16 z-50">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-primary cursor-pointer active:opacity-80" data-icon="grid_view" data-nav="staff_directory.html" title="Staff Directory">grid_view</span>
+<h1 class="font-headline-lg text-headline-lg font-bold text-primary tracking-tighter">STUDIO26 <span class="text-on-surface-variant font-headline-sm font-normal tracking-normal ml-sm">| Workforce Assignment</span></h1>
+</div>
+<div class="flex items-center gap-lg">
+<div class="hidden md:flex gap-md items-center">
+<div class="px-md py-xs rounded-full bg-surface-container-high border border-outline-variant text-label-caps font-label-caps text-on-surface-variant">
+                    SESSION: WC26_AZTECA_OP
+                </div>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:bg-surface-container-high transition-colors p-2 rounded-full" data-icon="notifications" data-nav="active_alarms.html" title="Active Alarms">notifications</span>
+</div>
+<div class="flex items-center gap-sm cursor-pointer hover:bg-surface-container-high p-1 pr-4 rounded-full transition-colors border border-outline-variant">
+<div class="w-8 h-8 rounded-full overflow-hidden border border-primary">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a stadium operations manager with a confident expression, wearing a dark navy tactical polo shirt with a subtle FIFA World Cup 2026 logo. The lighting is crisp and cinematic, emphasizing a high-tech command center background with blurred digital screens and blue ambient light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBE6DBd-woLreBnVKOckT3S6deYWjPwXw0j2PQ_oGwH_RDUE-O5AYX8oBhBAIqKX_881rsvhnJ9JTMEjHbYGRIrys_sXFSf2eHTPEcDsvbECtnceJGajT2VQZ5YYgbnYPjUSpR4ZhjtIR_qUw35OzEzZT1u01xILZ_MWuy9AFhyhKNBKVWz_YF7B5U4huXHCBCJl9ldgZOVed6l6PAG74jir3cRZCpqUsN9XmMfnqAk_axzrhaFmuY0RQ"/>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface">MGR_LOPEZ</span>
+</div>
+</div>
+</header>
+<div class="flex h-[calc(100vh-64px)] overflow-hidden">
+<!-- Navigation Drawer (From Shared Components) -->
+<aside class="hidden md:flex flex-col py-lg gap-sm h-full w-64 bg-surface-container-low border-r border-outline-variant">
+<div class="px-lg mb-md">
+<p class="font-label-caps text-label-caps text-outline uppercase tracking-widest">Command Center</p>
+</div>
+<nav class="flex flex-col flex-1 px-sm gap-xs">
+<div class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest transition-all rounded-r-full cursor-pointer group" data-nav="workforce_assignment_portal.html">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-caps text-label-caps">Operations</span>
+</div>
+<!-- Active Item -->
+<div class="flex items-center gap-md px-md py-sm bg-primary-container text-on-primary-container font-bold rounded-r-full cursor-pointer scale-95 active:scale-100 transition-transform">
+<span class="material-symbols-outlined" data-icon="group_add">group_add</span>
+<span class="font-label-caps text-label-caps">Staffing</span>
+</div>
+<div class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest transition-all rounded-r-full cursor-pointer group" data-nav="stadium_operations_map.html">
+<span class="material-symbols-outlined" data-icon="map">map</span>
+<span class="font-label-caps text-label-caps">Stadium Map</span>
+</div>
+<div class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest transition-all rounded-r-full cursor-pointer group" data-nav-toast="Logistics module is not included in this prototype.">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="font-label-caps text-label-caps">Logistics</span>
+</div>
+</nav>
+<div class="px-md mt-auto pt-lg border-t border-outline-variant">
+<div class="p-md bg-surface-container-high rounded-xl border border-outline-variant">
+<div class="flex justify-between items-center mb-sm">
+<span class="text-label-caps font-label-caps text-outline">Network</span>
+<div class="w-2 h-2 rounded-full bg-secondary animate-pulse"></div>
+</div>
+<p class="text-xs text-on-surface-variant font-body-md">Azteca-Sat-04 Uplink Active</p>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col md:flex-row overflow-hidden relative">
+<!-- Left Panel: User Search & List -->
+<section class="flex-1 flex flex-col p-md md:p-lg border-r border-outline-variant overflow-hidden">
+<!-- Search & Filters -->
+<div class="mb-lg space-y-md">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors" data-icon="search">search</span>
+<input id="staff-search" class="w-full bg-surface-container-lowest border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary rounded-xl py-3 pl-12 pr-4 text-body-md text-on-surface placeholder-outline-variant transition-all outline-none" placeholder="Search by name, ID or role..." type="text"/>
+</div>
+<div class="flex gap-sm overflow-x-auto pb-2 no-scrollbar">
+<button class="bg-primary text-on-primary px-4 py-1.5 rounded-full font-label-caps text-label-caps whitespace-nowrap hover:opacity-90 transition-opacity" data-filter-chip="All Staff">All Staff</button>
+<button class="bg-surface-container-high text-on-surface-variant border border-outline-variant px-4 py-1.5 rounded-full font-label-caps text-label-caps whitespace-nowrap hover:border-primary transition-colors" data-filter-chip="Security">Security</button>
+<button class="bg-surface-container-high text-on-surface-variant border border-outline-variant px-4 py-1.5 rounded-full font-label-caps text-label-caps whitespace-nowrap hover:border-primary transition-colors" data-filter-chip="Logistics">Logistics</button>
+<button class="bg-surface-container-high text-on-surface-variant border border-outline-variant px-4 py-1.5 rounded-full font-label-caps text-label-caps whitespace-nowrap hover:border-primary transition-colors" data-filter-chip="Medical">Medical</button>
+<button class="bg-surface-container-high text-on-surface-variant border border-outline-variant px-4 py-1.5 rounded-full font-label-caps text-label-caps whitespace-nowrap hover:border-primary transition-colors" data-filter-chip="Volunteers">Volunteers</button>
+</div>
+</div>
+<!-- Scrollable User List -->
+<div class="flex-1 overflow-y-auto pr-2 space-y-sm">
+<!-- User Card Item (Active State Example) -->
+<div class="user-card cursor-pointer p-md bg-surface-container-highest border border-primary glow-active rounded-xl transition-all hover:bg-surface-container-highest relative overflow-hidden" onclick="selectUser(this)">
+<div class="absolute top-0 right-0 p-2">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-xl bg-surface-container-low border border-outline-variant flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A detailed headshot of a female volunteer with a friendly smile, wearing a cyan-accented operations jacket. The background is a blurred stadium interior with modern navy and white architectural elements. Soft, natural light complements the technical, corporate theme of the 2026 World Cup." src="https://lh3.googleusercontent.com/aida-public/AB6AXuApjrxXixcMC2Mms7oisEA9m8yNGjtcRGeaMmJXxRHVktnMwA9miMLppNv95X2V1O3ioCo0vnojHxK4ket5x7oMKTh3jCDTDv8ACDRCruxA8vYi0KVnZtXMkFuOcHpUSHeW1BQMCmDU78Tr8hNhdi7Qd9mQeWaMvRT9IkBBq32M1f5iUO0l-Ktrs5EDWDA3QTWc_5m00NLpzzb7eb1PiBj5D4DYdjB8ohGtf-f2B5juVcAFg6MaomEXeg"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<h3 class="font-headline-sm text-headline-sm truncate">Elena Ramirez</h3>
+<span class="text-xs font-label-caps text-on-surface-variant opacity-60">ID: #44021</span>
+</div>
+<div class="flex items-center gap-xs mt-1">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<p class="text-xs font-label-caps text-secondary">ACTIVE</p>
+<span class="mx-1 text-outline">•</span>
+<p class="text-xs font-label-caps text-on-surface-variant">Gate 7 Security</p>
+</div>
+</div>
+</div>
+</div>
+<!-- User Card Item (Idle) -->
+<div class="user-card cursor-pointer p-md bg-surface-container-high border border-outline-variant rounded-xl transition-all hover:bg-surface-container-highest group" onclick="selectUser(this)">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-xl bg-surface-container-low border border-outline-variant flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close-up portrait of a male staff member with a focused look, wearing a dark charcoal polo with neon green 'OPS' embroidery. The background shows a high-contrast stadium corridor with geometric shadows and blue-tinted overhead lights, conveying a mission-critical atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7zwQTqi23dAA1U7wHmY3gK55XH_NtpeOP7BtMUOYV5a2oE__3ZMoVic4UsNEu_-fOOiGlTA9xfZWNWSkj8V3ehEnWwDG6hbAbF7dDQUP8QoWzCm1SMkA8mVh76VVj-6CRVzNtg-4nbz_MC7rFNcrv2DgAt1q4G2hZG_ikbCsZRCBZvuUxW5EGDwxJGhd7zqjaIKulOL4RMS20VfHW8ujnlVEY_gV7wosmD6SGYSMG0AHAMRpenTDHww"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<h3 class="font-headline-sm text-headline-sm truncate">Marcus Chen</h3>
+<span class="text-xs font-label-caps text-on-surface-variant opacity-60">ID: #44089</span>
+</div>
+<div class="flex items-center gap-xs mt-1">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<p class="text-xs font-label-caps text-tertiary">IDLE</p>
+<span class="mx-1 text-outline">•</span>
+<p class="text-xs font-label-caps text-on-surface-variant">Unassigned</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Additional Cards -->
+<div class="user-card cursor-pointer p-md bg-surface-container-high border border-outline-variant rounded-xl transition-all hover:bg-surface-container-highest" onclick="selectUser(this)">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-xl bg-surface-container-low border border-outline-variant flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of an African American male safety officer with a warm, authoritative smile. He is wearing a dark blue World Cup uniform with a visible ID badge. The background features a high-tech stadium environment with clean lines and a vibrant blue and black color palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7DyQ3dgtBaX-Eam-RTYqpnUMAf-DbDgHwEeAAHC0sKWyGX2SBxt-jua8a88Af17fgWz6xIQtqoT7ucqovV5XUkrOxRLVYWlcX7ByAyAYUwOPhiYHxmvGwLllEOxUvcaaMk7ZAviXnFRqIkGioy8LL4XkI2D8itZEkU5TF25GgzLayWPf-4NPYRaJbnhTJHUVP6QIKKvUDaunw4RLvdnoPEnwan8xshjTY1ErdOCF1eu_P9PnwkWyzcg"/>
+</div>
+<div class="flex-1 min-w-0">
+<h3 class="font-headline-sm text-headline-sm truncate">Derrick Okafor</h3>
+<div class="flex items-center gap-xs mt-1">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<p class="text-xs font-label-caps text-secondary">ACTIVE</p>
+<span class="mx-1 text-outline">•</span>
+<p class="text-xs font-label-caps text-on-surface-variant">Logistics / Zone 4</p>
+</div>
+</div>
+</div>
+</div>
+<div class="user-card cursor-pointer p-md bg-surface-container-high border border-outline-variant rounded-xl transition-all hover:bg-surface-container-highest" onclick="selectUser(this)">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-xl bg-surface-container-low border border-outline-variant flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Detailed portrait of a middle-aged female medical staff member with professional attire and a stethoscope around her neck. The background shows a modern stadium medical bay with sterile lighting and blue-grey panels. The lighting is bright and clear, reflecting a high-performance clinical setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDE_uuNNNMXFNsz8kM0uw54tebqOs3yi189wvipiZCPzU15VlcZucF77PwdTv2AjYaJ2j3s7CT2Xal8F_MGv93q57kN8MZDTISNKSqbcCMY5x6NEA3eMDofUr6OQKeC-byNpEPTeKngRO_sb8aUqKaLfSMFXnfOdDsNsM6vJCXbp4M37xQHYkwWCyCy1Ma2JkdwS3D-NVUB4_VAUvaOiG8VRCTfhnMq7rpBomXn-mnf0yGcxTs2vsMlLQ"/>
+</div>
+<div class="flex-1 min-w-0">
+<h3 class="font-headline-sm text-headline-sm truncate">Sarah Jenkins</h3>
+<div class="flex items-center gap-xs mt-1">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<p class="text-xs font-label-caps text-tertiary">IDLE</p>
+<span class="mx-1 text-outline">•</span>
+<p class="text-xs font-label-caps text-on-surface-variant">Medical Lead</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Right Panel: Assignment Controls -->
+<section class="w-full md:w-[450px] flex flex-col p-md md:p-lg bg-surface-container-low overflow-y-auto">
+<div class="mb-lg">
+<h2 class="font-headline-md text-headline-md text-primary mb-xs">Assignment Detail</h2>
+<p class="text-on-surface-variant text-body-md">Define role and tactical location for the selected operative.</p>
+</div>
+<div class="space-y-xl">
+<!-- Section: Role Selection -->
+<div>
+<label class="font-label-caps text-label-caps text-outline uppercase block mb-md">Select Role Profile</label>
+<div class="grid grid-cols-2 gap-sm">
+<button class="flex flex-col items-center gap-sm p-md rounded-xl bg-surface-container-high border border-outline-variant hover:border-primary transition-all group" data-role-btn="Security">
+<span class="material-symbols-outlined text-3xl group-hover:text-primary" data-icon="shield">shield</span>
+<span class="font-label-caps text-label-caps">Security</span>
+</button>
+<button class="flex flex-col items-center gap-sm p-md rounded-xl bg-surface-container-highest border border-primary text-primary transition-all" data-role-btn="Crowd Control">
+<span class="material-symbols-outlined text-3xl" data-icon="group">group</span>
+<span class="font-label-caps text-label-caps">Crowd Control</span>
+</button>
+<button class="flex flex-col items-center gap-sm p-md rounded-xl bg-surface-container-high border border-outline-variant hover:border-primary transition-all group" data-role-btn="Medical">
+<span class="material-symbols-outlined text-3xl group-hover:text-primary" data-icon="medical_services">medical_services</span>
+<span class="font-label-caps text-label-caps">Medical</span>
+</button>
+<button class="flex flex-col items-center gap-sm p-md rounded-xl bg-surface-container-high border border-outline-variant hover:border-primary transition-all group" data-role-btn="Logistics">
+<span class="material-symbols-outlined text-3xl group-hover:text-primary" data-icon="inventory">inventory</span>
+<span class="font-label-caps text-label-caps">Logistics</span>
+</button>
+</div>
+</div>
+<!-- Section: Location Map / Selection -->
+<div>
+<label class="font-label-caps text-label-caps text-outline uppercase block mb-md">Tactical Location</label>
+<div class="relative w-full aspect-square rounded-xl bg-surface-container-lowest border border-outline-variant overflow-hidden mb-md group cursor-crosshair">
+<div class="absolute inset-0 opacity-40 group-hover:opacity-60 transition-opacity">
+<img class="w-full h-full object-cover" data-alt="A stylized, architectural top-down tactical map of Estadio Azteca stadium. The map is rendered in deep navy and slate tones with glowing cyan and orange boundary lines for different operational zones. Icons for gates and spectator stands are clearly marked in a minimalist, data-driven style." data-location="Estadio Azteca, Mexico City" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsiO34sHATtRMlKYASDaaKfIg6nq4DwSoR2Iq8Hrq5wvEKXXa_Zl3y4z3n9LMvziY6-PISyeDbXFq3SDZqGLtW2mqxltZ9am-tX9Yaazd3dWbD6BPclOvPQuTdzBxpHb_epi379CQGA1s7ILUTRKZryqqqwbQMbCngVJiUCxcsMbM4NwCM_yStWe_LXtkpMt5TS8sz5PkD0yNGmVr-99teFkoLQaCyPrHbINB-RGvy93deV7s-Bl5Pag"/>
+</div>
+<!-- Map Overlays -->
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-16 h-16 rounded-full border-2 border-primary bg-primary/10 animate-pulse flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="location_on" style="font-variation-settings: 'FILL' 1;">location_on</span>
+</div>
+</div>
+<div class="absolute bottom-4 left-4 p-2 bg-surface/80 backdrop-blur rounded border border-outline-variant">
+<p class="text-[10px] font-label-caps text-on-surface">LOC: ZONE_03 / GATE_07</p>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-xs">
+<button class="py-2 rounded-lg bg-surface-container-highest border border-primary text-primary font-label-caps text-label-caps" data-loc-btn="Gate 7">Gate 7</button>
+<button class="py-2 rounded-lg bg-surface-container-high border border-outline-variant text-on-surface-variant font-label-caps text-label-caps hover:border-primary transition-colors" data-loc-btn="North Stand">North Stand</button>
+<button class="py-2 rounded-lg bg-surface-container-high border border-outline-variant text-on-surface-variant font-label-caps text-label-caps hover:border-primary transition-colors" data-loc-btn="VIP Lounge">VIP Lounge</button>
+<button class="py-2 rounded-lg bg-surface-container-high border border-outline-variant text-on-surface-variant font-label-caps text-label-caps hover:border-primary transition-colors" data-loc-btn="Zone 1-3">Zone 1-3</button>
+<button class="py-2 rounded-lg bg-surface-container-high border border-outline-variant text-on-surface-variant font-label-caps text-label-caps hover:border-primary transition-colors" data-loc-btn="Concourse B">Concourse B</button>
+<button class="py-2 rounded-lg bg-surface-container-high border border-outline-variant text-on-surface-variant font-label-caps text-label-caps hover:border-primary transition-colors" data-loc-btn="Gate 9">Gate 9</button>
+</div>
+</div>
+<!-- Critical Alert Overlay (Contextual) -->
+<div class="p-md bg-tertiary-container/10 border border-tertiary-container rounded-xl glow-alert">
+<div class="flex items-center gap-sm mb-xs">
+<span class="material-symbols-outlined text-tertiary-container" data-icon="warning">warning</span>
+<span class="font-label-caps text-label-caps text-tertiary-container">OPERATIONAL PRIORITY</span>
+</div>
+<p class="text-body-md text-on-surface">Zone 03 is currently at 85% capacity. Staff redirection is highly recommended within next 10 mins.</p>
+</div>
+<!-- Confirm Action -->
+<div class="pt-md pb-lg">
+<button id="confirm-assignment-btn" class="w-full py-4 bg-primary text-on-primary font-headline-sm rounded-xl hover:bg-primary-container transition-all active:scale-95 flex items-center justify-center gap-md">
+<span class="material-symbols-outlined" data-icon="assignment_turned_in">assignment_turned_in</span>
+                            Confirm Assignment
+                        </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Summary Bar (Overlay / Footer) -->
+<div class="fixed bottom-margin-mobile left-margin-mobile md:left-72 right-margin-mobile bg-surface-container-high/90 backdrop-blur-md border border-outline-variant rounded-full px-md py-sm flex items-center justify-between shadow-2xl z-40">
+<div class="flex items-center gap-lg">
+<div class="flex flex-col">
+<span class="text-[10px] font-label-caps text-outline uppercase">Deployed Force</span>
+<div class="flex items-baseline gap-xs">
+<span class="font-data-display text-data-display text-primary">482</span>
+<span class="text-xs font-label-caps text-on-surface-variant">/ 1500 Total</span>
+</div>
+</div>
+<div class="h-8 w-px bg-outline-variant"></div>
+<div class="flex flex-col">
+<span class="text-[10px] font-label-caps text-outline uppercase">Utilization Rate</span>
+<span class="font-data-display text-data-display text-secondary">32.1%</span>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<div class="w-32 h-1.5 bg-surface-container-lowest rounded-full overflow-hidden hidden sm:block">
+<div class="h-full bg-primary w-[32%]"></div>
+</div>
+<span class="text-xs font-label-caps text-on-surface-variant">OPTIMAL</span>
+</div>
+</div>
+<!-- Mobile Bottom NavBar (Shared Components) -->
+<nav class="fixed bottom-0 w-full z-50 md:hidden bg-surface-container-high shadow-lg flex justify-around items-center px-4 pb-4 pt-2 border-t border-outline-variant">
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary cursor-pointer active:scale-90 transition-transform duration-150" data-nav="staff_directory.html">
+<span class="material-symbols-outlined" data-icon="badge">badge</span>
+<span class="font-label-caps text-label-caps">Staff</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary cursor-pointer active:scale-90 transition-transform duration-150" data-nav="zone_allocation_management.html">
+<span class="material-symbols-outlined" data-icon="location_on">location_on</span>
+<span class="font-label-caps text-label-caps">Zones</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl p-2 active:scale-90 transition-transform duration-150" data-nav="active_alarms.html">
+<span class="material-symbols-outlined" data-icon="warning">warning</span>
+<span class="font-label-caps text-label-caps">Alerts</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary cursor-pointer active:scale-90 transition-transform duration-150" data-nav="volunteer_profile.html">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-caps text-label-caps">Settings</span>
+</div>
+</nav>
+</div>
+
+</body></html>

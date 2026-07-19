@@ -1,0 +1,136 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>FIFA World Cup 2026 - Create Account</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="tailwind.config.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Hanken+Grotesk:wght@600;700&amp;family=JetBrains+Mono:wght@600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="global.css">
+<script src="create_account.js" defer></script>
+<script src="apex-data.js" defer></script>
+<script src="navigation.js" defer></script>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen flex flex-col items-center justify-center relative overflow-hidden">
+<!-- Background Decorative Element (Level 0) -->
+<div class="absolute inset-0 stadium-mesh opacity-20 pointer-events-none"></div>
+<div class="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] bg-primary opacity-5 rounded-full blur-[120px]"></div>
+<div class="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-secondary opacity-5 rounded-full blur-[120px]"></div>
+<!-- TopAppBar Mock (Suppressed Navigation Shell - Transactional Page) -->
+<header class="w-full top-0 sticky bg-surface flex justify-between items-center px-margin-mobile py-sm border-b border-outline-variant z-50">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-primary" data-icon="language">language</span>
+<span class="font-headline-sm text-headline-sm font-bold text-primary">STUDIO26</span>
+</div>
+<div class="flex items-center gap-sm">
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-widest">v4.0.26 / STADIUM OPS</span>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-grow flex items-center justify-center w-full px-margin-mobile py-xl md:py-0">
+<div class="w-full max-w-[480px] space-y-lg relative">
+<!-- Context Header -->
+<div class="space-y-sm">
+<div class="flex items-center gap-xs text-secondary">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<span class="font-label-caps text-label-caps uppercase">Volunteer Onboarding</span>
+</div>
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">Create Account</h1>
+<p class="text-on-surface-variant font-body-lg text-body-lg leading-relaxed">
+                    Welcome to Apex Operations. Register your credentials to begin the authorization process for the 2026 tournament cycle.
+                </p>
+</div>
+<!-- Bento-style Form Card -->
+<div class="bg-surface-container-low border border-outline-variant rounded-xl p-md md:p-lg shadow-xl relative overflow-hidden">
+<!-- High-tech accent line -->
+<div class="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-primary to-secondary"></div>
+<form class="space-y-md" id="register-form">
+<!-- Full Name -->
+<div class="space-y-xs group">
+<label class="font-label-caps text-label-caps text-outline group-focus-within:text-primary transition-colors" for="fullName">FULL NAME</label>
+<div class="relative flex items-center glow-border">
+<span class="absolute left-md material-symbols-outlined text-outline group-focus-within:text-primary" data-icon="person">person</span>
+<input class="w-full bg-surface-dim border border-outline-variant rounded-lg pl-11 pr-md py-md text-on-surface placeholder:text-surface-container-highest focus:ring-0 focus:border-primary transition-all font-body-md" id="fullName" placeholder="Johnathan Doe" type="text" required>
+</div>
+</div>
+<!-- Email -->
+<div class="space-y-xs group">
+<label class="font-label-caps text-label-caps text-outline group-focus-within:text-primary transition-colors" for="email">OFFICIAL EMAIL</label>
+<div class="relative flex items-center glow-border">
+<span class="absolute left-md material-symbols-outlined text-outline group-focus-within:text-primary" data-icon="mail">mail</span>
+<input class="w-full bg-surface-dim border border-outline-variant rounded-lg pl-11 pr-md py-md text-on-surface placeholder:text-surface-container-highest focus:ring-0 focus:border-primary transition-all font-body-md" id="email" placeholder="j.doe@operations.fifa.com" type="email" required>
+</div>
+</div>
+<!-- Access Key (Password) -->
+<div class="space-y-xs group">
+<label class="font-label-caps text-label-caps text-outline group-focus-within:text-primary transition-colors" for="password">ACCESS KEY (PASSWORD)</label>
+<div class="relative flex items-center glow-border">
+<span class="absolute left-md material-symbols-outlined text-outline group-focus-within:text-primary" data-icon="lock">lock</span>
+<input class="w-full bg-surface-dim border border-outline-variant rounded-lg pl-11 pr-md py-md text-on-surface placeholder:text-surface-container-highest focus:ring-0 focus:border-primary transition-all font-body-md" id="password" placeholder="Min. 6 characters" type="password" minlength="6" required>
+</div>
+</div>
+
+<!-- Consent / Info Section -->
+<div class="bg-surface-container p-sm rounded-lg border border-outline-variant/30 flex gap-sm items-start">
+<span class="material-symbols-outlined text-tertiary mt-0.5" data-icon="info">info</span>
+<p class="text-xs text-on-surface-variant leading-tight">
+                            By clicking Next, you agree to our 128-bit encryption protocols and operational security policies. A verification code will be dispatched to your email.
+                        </p>
+</div>
+<!-- Status / Error Messages -->
+<div id="error-message" class="text-error text-[12px] font-label-caps bg-error-container/20 border border-error-container/30 px-md py-sm rounded hidden"></div>
+<!-- Primary Action -->
+<button type="submit" id="register-btn" class="w-full bg-primary-container hover:bg-primary text-on-primary-container font-headline-sm text-headline-sm py-md rounded-xl transition-all active:scale-[0.98] flex justify-center items-center gap-sm group">
+                        Next
+                        <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</form>
+</div>
+<!-- Footer Links -->
+<div class="flex justify-between items-center px-sm">
+<button class="text-outline hover:text-on-surface transition-colors font-label-caps text-label-caps uppercase flex items-center gap-xs">
+<span class="material-symbols-outlined text-[14px]" data-icon="help">help</span>
+                    Support
+                </button>
+<div class="flex gap-md">
+<span class="text-outline/30">|</span>
+<button id="back-to-login" class="text-outline hover:text-on-surface transition-colors font-label-caps text-label-caps uppercase">Back to Login</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Operational Background Decoration -->
+<div class="hidden lg:block absolute left-gutter top-1/2 -translate-y-1/2 space-y-xl pointer-events-none opacity-40">
+<div class="space-y-xs">
+<div class="font-label-caps text-[10px] text-primary">SCANNING UPLINK...</div>
+<div class="w-32 h-[1px] bg-primary"></div>
+</div>
+<div class="space-y-xs">
+<div class="font-label-caps text-[10px] text-secondary">READY TO DEPLOY</div>
+<div class="w-48 h-[1px] bg-secondary"></div>
+</div>
+</div>
+<!-- Visual Identity Strip -->
+<footer class="w-full py-md px-margin-mobile border-t border-outline-variant bg-surface-container-low flex flex-col md:flex-row justify-between items-center gap-md">
+<div class="flex items-center gap-md">
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-container-highest flex items-center justify-center border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A macro close-up of a high-tech security badge with holographic FIFA World Cup 2026 logos and a shimmering volunteer profile silhouette. The lighting is cold and clinical, with blue and green lens flares suggesting a high-security entrance. The style is hyper-realistic and futuristic, fitting for an advanced command center environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBbVgdT9IKOOpVT3xezTsK01MBIO1hEbWScFFHiFKZwfcvUF3p56E1A_3YXPE0ue8KMJK4rEzy6uoJzl3LUHC_-cd1Ph9YQCAf5qF6uO4nwvglvBo5MAWTUo68jCM6eFnZFO1VM5gj79YRv5D1nXdYdkEsAO4qICzfOvuhBjGBYJ9Ry8iKUteZv1XkTi1O-39o6sA2zggVpkEcjG09oQAvChk6YPPYVgcy4PzhttuDxvJeTMXxnD3tBg">
+</div>
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-on-surface leading-none">APEX OPS</span>
+<span class="text-[10px] text-outline font-data-display">STADIUM MANAGEMENT SYSTEM</span>
+</div>
+</div>
+<div class="flex items-center gap-xl text-outline font-label-caps text-[10px] tracking-[0.2em]">
+<span class="">STADIUM ALPHA</span>
+<span class="">ZONE 4 MARSHALL</span>
+<span class="text-secondary animate-pulse">● LIVE FEED</span>
+</div>
+</footer>
+
+
+
+
+
+</body></html>

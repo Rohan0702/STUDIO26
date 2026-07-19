@@ -1,0 +1,196 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Volunteer Tasking - Operations Command</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="tailwind.config.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="volunteer_tasking_interface.js" defer></script>
+<link rel="stylesheet" href="global.css">
+<script src="apex-data.js" defer></script>
+<script src="navigation.js" defer></script>
+</head>
+<body class="font-body-md selection:bg-primary/30 min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="bg-surface-container text-primary docked full-width top-0 border-b border-outline-variant flex justify-between items-center w-full px-margin-mobile py-sm z-40 sticky">
+<div class="flex items-center gap-md">
+<div class="relative w-10 h-10 rounded-full border-2 border-secondary overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a Hispanic male volunteer named David, wearing a high-visibility FIFA World Cup 2026 jacket, with a confident and helpful expression. The background shows a slightly blurred stadium interior with cool blue and slate tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgIzd6ybYPxHqLI1BHhKyqeOk3AWBEB4lfwbAZ9VczHV-ZDDve9ICgvgEzIqmbvSP-ad8lb-tCt71U-R3fEXTZyOXJZ_fcadQU1XQ-BHi9qVgYhB4WQaov5hkokthOaqffYkY0JF-q3gthgDkn6ZHmpgA0GbfZ_JLc86xlAVHI8VOx4HlPEid4JtB074U_tBROVVvcQ-9M68iFmlWSX-KxQ5Axyi7n5EOUPyK99rX2S_KQlGYPf1THHQ">
+<div class="absolute bottom-0 right-0 w-3 h-3 bg-secondary rounded-full border-2 border-surface-container"></div>
+</div>
+<div>
+<h1 class="text-headline-sm font-headline-sm font-bold text-surface-tint">Operations Command</h1>
+<p class="text-label-caps font-label-caps text-on-surface-variant">ZONE 3 - GATE 7 • ACTIVE</p>
+</div>
+</div>
+<div class="text-label-caps font-label-caps text-primary font-bold">
+            ESTADIO AZTECA
+        </div>
+</header>
+<main class="px-margin-mobile py-lg flex flex-col gap-lg max-w-md mx-auto">
+<!-- Mission Status Overview -->
+<section class="flex gap-sm overflow-x-auto pb-xs">
+<div class="bg-surface-container-low border border-outline-variant rounded-xl p-md min-w-[140px]">
+<span class="text-label-caps font-label-caps text-on-surface-variant block mb-xs">CROWD DENSITY</span>
+<span class="text-secondary font-bold text-body-md flex items-center gap-xs">
+                    OPTIMAL <span class="material-symbols-outlined text-[16px]">check_circle</span>
+</span>
+</div>
+<div class="bg-surface-container-low border border-outline-variant rounded-xl p-md min-w-[140px]">
+<span class="text-label-caps font-label-caps text-on-surface-variant block mb-xs">STAFF LOAD</span>
+<span class="text-primary font-bold text-body-md">92% CAP.</span>
+</div>
+</section>
+<!-- Primary Task Card -->
+<section class="bg-surface-container border border-primary/30 rounded-xl overflow-hidden glow-active">
+<div class="bg-primary/10 px-md py-sm flex justify-between items-center border-b border-primary/20">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">assignment</span>
+<span class="text-label-caps font-label-caps text-primary uppercase">Current Task</span>
+</div>
+<div class="flex items-center gap-xs text-secondary">
+<span class="material-symbols-outlined text-[18px]">accessible</span>
+<span class="text-label-caps font-label-caps">Priority</span>
+</div>
+</div>
+<div class="p-md space-y-md">
+<div>
+<h2 class="text-headline-sm font-headline-sm text-on-surface">Assist Mateo (Accessibility Support)</h2>
+<p class="text-body-md text-on-surface-variant mt-sm">
+<span class="text-primary font-bold">The Why:</span> Mateo is rerouting to the accessible elevator near Gate 7 due to Gate 6 closure. Mateo speaks Spanish.
+                    </p>
+</div>
+<!-- Map Snippet -->
+<div class="relative h-40 rounded-xl overflow-hidden border border-outline-variant bg-surface-dim">
+<div class="absolute inset-0 opacity-40 grayscale contrast-125" data-alt="A top-down architectural map snippet of Estadio Azteca's Zone 3 and Gate 7 area. The map is in a dark, high-contrast tactical style with glowing teal lines for corridors and orange pulses for points of interest." data-location="Mexico City Estadio Azteca" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDlQcYTf0RiPC2XhhjyOBs8iIOIXiCQ76nyJRzKAdGQslhgz1tZNkY2o5AGE-MT7CfsesX1QE0Vve8P5LXd9YmqAM-9r6FssF9wIhkSlHYqYgBepNLBu3_53LIFkZVuwKcly5PnBO8zOQW9VXCe2X-eQb-0ADJMoB_zSRtuiKrUO19l45PJySFXEPmwNVjl-EUPWA85LZhzt1ixFzS0daTcJ6HLv2Avm-M0lYc8b_AJ2jJRrKcftka0gw')"></div>
+<div class="absolute top-1/2 left-1/3 w-4 h-4 bg-primary rounded-full border-2 border-white animate-pulse"></div> <!-- David -->
+<div class="absolute top-1/3 right-1/4 w-4 h-4 bg-secondary rounded-full border-2 border-white"></div> <!-- Mateo -->
+<div class="absolute top-2 left-2 bg-surface-container-highest/80 px-2 py-1 rounded text-[10px] font-label-caps border border-outline-variant">LIVE PROXIMITY</div>
+</div>
+<div class="bg-surface-container-low p-md rounded-lg border border-outline-variant">
+<span class="text-label-caps font-label-caps text-on-surface-variant block mb-sm">ACTION (THE HOW)</span>
+<p class="text-body-md">Direct to <span class="text-primary-fixed-dim font-bold">Elevator 4B</span>. Use built-in translation to explain the detour.</p>
+</div>
+<!-- Translation Widget -->
+<div class="bg-surface-container-highest rounded-xl p-md border border-outline-variant space-y-md">
+<div class="flex justify-between items-center flex-col"><div class="flex items-center gap-sm mb-sm"><div class="w-8 h-8 rounded-full bg-primary/20 border border-primary/40 flex items-center justify-center"><span class="material-symbols-outlined text-primary text-[20px]">psychology</span></div><div class="flex flex-col"><span class="text-[10px] font-label-caps text-primary uppercase tracking-widest">Apex AI Agent</span><span class="text-[10px] text-secondary flex items-center gap-xs"><span class="w-1.5 h-1.5 bg-secondary rounded-full animate-pulse"></span> Processing Context</span></div></div>
+<span id="translation-label" class="text-label-caps font-label-caps text-secondary flex items-center gap-xs w-full">
+<span class="material-symbols-outlined text-[16px]">translate</span> Spanish <span class="material-symbols-outlined text-[16px]">arrow_forward</span> English
+                        </span>
+<div class="w-full space-y-sm">
+  <textarea id="translation-input" class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg p-sm text-body-md text-on-surface placeholder:text-outline/50 focus:ring-1 focus:ring-primary focus:outline-none transition-all font-body-md" rows="2" placeholder="Type a message or click Speak..."></textarea>
+</div>
+<div class="flex gap-sm w-full">
+  <button id="hold-to-speak-btn" class="flex-1 bg-primary text-on-primary font-bold py-md rounded-xl flex justify-center items-center gap-sm transition-transform active:scale-95 shadow-lg shadow-primary/20">
+    <span class="material-symbols-outlined">mic</span> HOLD TO SPEAK
+  </button>
+  <button id="play-audio-btn" class="w-12 h-12 bg-surface-container-high text-primary border border-primary/30 rounded-xl flex items-center justify-center active:scale-95 transition-transform" title="Speak translation out loud">
+    <span class="material-symbols-outlined">volume_up</span>
+  </button>
+</div>
+</div>
+<div id="speech-status" class="bg-surface-container-lowest p-sm rounded-lg border border-outline-variant min-h-[60px] text-body-md text-on-surface italic flex flex-col justify-center">
+  <div class="flex items-center gap-sm text-on-surface-variant">
+    <span class="material-symbols-outlined text-[20px]">translate</span>
+    <span id="translation-result-placeholder">Waiting for input to translate...</span>
+  </div>
+</div>
+<div id="equalizer-container" class="hidden space-y-xs">
+  <div class="flex justify-between items-center">
+    <span class="text-label-caps font-label-caps text-on-surface-variant uppercase tracking-widest text-[10px]">Input Level</span>
+    <div class="flex items-center gap-xs text-tertiary animate-pulse">
+      <span class="material-symbols-outlined text-[14px]">vibration</span>
+      <span class="text-[10px] font-label-caps uppercase tracking-widest">Voice Active</span>
+    </div>
+    <div class="flex gap-[2px]">
+      <div class="w-3 h-1.5 bg-secondary rounded-sm"></div>
+      <div class="w-3 h-1.5 bg-secondary rounded-sm"></div>
+      <div class="w-3 h-1.5 bg-secondary rounded-sm"></div>
+      <div class="w-3 h-1.5 bg-tertiary rounded-sm animate-pulse"></div>
+      <div class="w-3 h-1.5 bg-error rounded-sm animate-pulse"></div>
+    </div>
+  </div>
+  <div class="flex items-center justify-center gap-xs py-sm">
+    <div class="w-1 h-4 bg-primary rounded-full animate-pulse"></div>
+    <div class="w-1 h-8 bg-primary rounded-full animate-pulse" style="animation-delay: 0.1s"></div>
+    <div class="w-1 h-6 bg-primary rounded-full animate-pulse" style="animation-delay: 0.2s"></div>
+    <div class="w-1 h-10 bg-primary rounded-full animate-pulse" style="animation-delay: 0.3s"></div>
+    <div class="w-1 h-6 bg-primary rounded-full animate-pulse" style="animation-delay: 0.4s"></div>
+    <div class="w-1 h-8 bg-primary rounded-full animate-pulse" style="animation-delay: 0.5s"></div>
+    <div class="w-1 h-4 bg-primary rounded-full animate-pulse" style="animation-delay: 0.6s"></div>
+  </div>
+</div>
+<div id="translation-output-container" class="text-body-md text-primary-fixed-dim font-medium p-xs">
+  <span id="translation-output">"Elevator 4B is around the corner..."</span>
+  <span class="text-on-surface-variant text-[12px] italic block mt-xs">(Hold speak button to record • Type to translate text • Tap speaker to play)</span>
+</div>
+</div>
+<div class="flex flex-col gap-sm pt-sm">
+<button id="start-task-btn" class="w-full bg-primary text-on-primary font-bold py-md rounded-xl flex justify-center items-center gap-sm transition-transform active:scale-95 shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined">play_arrow</span> Start Task
+                    </button>
+<div class="grid grid-cols-2 gap-sm">
+<button id="view-map-btn" class="bg-surface-container-high border border-outline-variant text-on-surface font-semibold py-md rounded-xl flex justify-center items-center gap-xs hover:bg-surface-bright transition-colors">
+<span class="material-symbols-outlined text-[20px]">map</span> View Map
+                        </button>
+<button id="open-tool-btn" class="bg-surface-container-high border border-outline-variant text-on-surface font-semibold py-md rounded-xl flex justify-center items-center gap-xs hover:bg-surface-bright transition-colors">
+<span class="material-symbols-outlined text-[20px]">translate</span> Open Tool
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Secondary Tasks -->
+<section>
+<h3 class="text-label-caps font-label-caps text-on-surface-variant mb-md px-xs">PENDING QUEUE (2)</h3>
+<div class="space-y-md">
+<!-- Task item 1 -->
+<div id="task-item-t2" class="bg-surface-container-low border border-tertiary/40 rounded-xl p-md flex items-start gap-md hover:bg-surface-container-high transition-all cursor-pointer group">
+<div class="w-10 h-10 bg-tertiary-container/20 rounded-lg flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined">warning</span>
+</div>
+<div class="flex-1">
+<h4 class="text-body-md font-bold text-on-surface group-hover:text-tertiary transition-colors">Ingress Surge Alert</h4>
+<p class="text-body-md text-on-surface-variant">Assist with queue management at Gate 7A.</p>
+<span class="text-[10px] font-label-caps text-tertiary-fixed-dim mt-sm block uppercase tracking-widest">T-MINUS 15 MIN</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</div>
+<!-- Task item 2 -->
+<div id="task-item-t3" class="bg-surface-container-low border border-outline-variant rounded-xl p-md flex items-start gap-md hover:bg-surface-container-high transition-all cursor-pointer group">
+<div class="w-10 h-10 bg-surface-container-highest rounded-lg flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">help_center</span>
+</div>
+<div class="flex-1">
+<h4 class="text-body-md font-bold text-on-surface group-hover:text-primary transition-colors">Translation Request</h4>
+<p class="text-body-md text-on-surface-variant">Fan needs help at Information Kiosk 2.</p>
+<span class="text-[10px] font-label-caps text-on-surface-variant mt-sm block uppercase tracking-widest">300m AWAY</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-gutter pb-6 pt-2 bg-surface-container-highest rounded-t-xl shadow-lg">
+<div class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 transition-transform duration-150 active:scale-95">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">assignment</span>
+<span class="text-label-caps font-label-caps">Tasks</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-colors" data-nav="stadium_operations_map.html">
+<span class="material-symbols-outlined">map</span>
+<span class="text-label-caps font-label-caps">Map</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-colors relative" data-nav="active_alarms.html">
+<span class="material-symbols-outlined">notifications_active</span>
+<span class="text-label-caps font-label-caps">Alerts</span>
+<div class="absolute top-0 right-3 w-2 h-2 bg-tertiary rounded-full"></div>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-colors" data-nav="volunteer_profile.html">
+<span class="material-symbols-outlined">person</span>
+<span class="text-label-caps font-label-caps">Profile</span>
+</div>
+</nav>
+
+<div id="ai-insight" class="fixed bottom-28 right-4 z-40 flex flex-col items-end gap-sm max-w-[280px]"><div class="bg-surface-container-highest border border-primary/40 p-md rounded-xl shadow-lg glow-active animate-pulse"><div class="flex items-center gap-xs mb-xs"><span class="material-symbols-outlined text-primary text-[18px]">smart_toy</span><span class="text-label-caps font-label-caps text-primary">AI INSIGHT</span></div><p class="text-body-md text-on-surface" data-user-name-prefix>David, I recommend checking the crowd density at Concourse B before proceeding.</p></div><div id="ai-insight-dismiss" class="w-12 h-12 bg-primary rounded-full flex items-center justify-center shadow-lg border-2 border-white/20 cursor-pointer active:scale-95 transition-transform"><span class="material-symbols-outlined text-on-primary">auto_awesome</span></div></div></body></html>
