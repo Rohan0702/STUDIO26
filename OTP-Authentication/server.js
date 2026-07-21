@@ -3,7 +3,16 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const bcrypt = require("bcryptjs");
 const path = require("path");
-require("dotenv").config({ path: path.join(__dirname, ".env") });
+const fs = require("fs");
+
+// Load .env file only if it exists (Vercel injects env vars directly)
+const envPath = path.join(__dirname, ".env");
+if (fs.existsSync(envPath)) {
+  require("dotenv").config({ path: envPath });
+} else {
+  // On Vercel, env vars are already in process.env
+  console.log("No .env file found — using platform environment variables.");
+}
 
 const app = express();
 
@@ -129,6 +138,16 @@ app.post("/api/translate", async (req, res) => {
     console.error("Translation server error:", error);
     res.status(500).json({ message: "Server error during translation." });
   }
+});
+
+// Global error handler — Express 5 sends plain text "A server error occurred" by default.
+// This ensures ALL errors are returned as JSON so the frontend can parse them.
+app.use((err, req, res, next) => {
+  console.error("[GLOBAL ERROR]", err.stack || err.message || err);
+  const statusCode = err.status || err.statusCode || 500;
+  res.status(statusCode).json({
+    message: err.message || "An unexpected server error occurred."
+  });
 });
 
 // server

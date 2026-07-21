@@ -57,15 +57,24 @@ router.post("/register", async (req, res) => {
     await user.save();
 
     // send email
-    await sendOTP(emailLower, otp);
+    try {
+      await sendOTP(emailLower, otp);
+    } catch (emailErr) {
+      console.error("[REGISTER] Email send failed:", emailErr.message);
+      // User is saved but email failed — still tell frontend to go to OTP page
+      // The user can click "resend" to retry
+      return res.json({
+        message: "Account created but email delivery failed. Please use 'Resend Code' on the verification page."
+      });
+    }
 
     res.json({
       message: "OTP sent successfully"
     });
   } catch (error) {
-    console.log(error);
+    console.error("[REGISTER ERROR]", error);
     res.status(500).json({
-      message: "Server error during registration."
+      message: error.message || "Server error during registration."
     });
   }
 });
@@ -140,12 +149,17 @@ router.post("/resend-otp", async (req, res) => {
     user.otpExpire = Date.now() + 10 * 60 * 1000;
     await user.save();
 
-    await sendOTP(emailLower, otp);
+    try {
+      await sendOTP(emailLower, otp);
+    } catch (emailErr) {
+      console.error("[RESEND-OTP] Email send failed:", emailErr.message);
+      return res.status(500).json({ message: "Failed to send email. Please check server email configuration." });
+    }
 
     res.json({ message: "OTP resent successfully." });
   } catch (error) {
-    console.log(error);
-    res.status(500).json({ message: "Server error resending OTP." });
+    console.error("[RESEND-OTP ERROR]", error);
+    res.status(500).json({ message: error.message || "Server error resending OTP." });
   }
 });
 
@@ -179,7 +193,11 @@ router.post("/login", async (req, res) => {
       user.otpExpire = Date.now() + 10 * 60 * 1000;
       await user.save();
 
-      await sendOTP(emailLower, otp);
+      try {
+        await sendOTP(emailLower, otp);
+      } catch (emailErr) {
+        console.error("[LOGIN] Email send failed for unverified user:", emailErr.message);
+      }
 
       return res.status(403).json({
         verified: false,
