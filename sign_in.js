@@ -51,7 +51,13 @@ document.addEventListener('DOMContentLoaded', function () {
       body: JSON.stringify({ email, password })
     })
     .then(async (response) => {
-      const data = await response.json();
+      let data;
+      try {
+        data = await response.json();
+      } catch (parseErr) {
+        const text = await response.text().catch(() => 'Unknown server error');
+        throw new Error(text || 'Server returned an invalid response.');
+      }
       if (!response.ok) {
         if (response.status === 403) {
           // User is registered but not verified

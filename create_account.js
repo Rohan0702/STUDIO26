@@ -48,7 +48,14 @@ document.addEventListener('DOMContentLoaded', function () {
       })
     })
     .then(async (response) => {
-      const data = await response.json();
+      let data;
+      try {
+        data = await response.json();
+      } catch (parseErr) {
+        // Server returned non-JSON (e.g. plain text error)
+        const text = await response.text().catch(() => 'Unknown server error');
+        throw new Error(text || 'Server returned an invalid response.');
+      }
       if (!response.ok) {
         throw new Error(data.message || 'An error occurred during registration.');
       }
